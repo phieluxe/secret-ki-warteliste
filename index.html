@@ -56,7 +56,7 @@ em{font-style:italic;background:var(--grad);-webkit-background-clip:text;backgro
 @keyframes run{to{transform:translateX(-50%)}}
 
 .videos{padding:clamp(56px,9vw,96px) 0}
-.vgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(16px,3vw,32px);max-width:760px;margin:0 auto}
+.vgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,3vw,28px);max-width:1000px;margin:0 auto}
 .vbox p{margin-top:14px;font-size:14px;color:var(--muted);text-align:center}
 .vbox .hint{display:inline-block;margin-top:8px;font-size:12px;color:var(--violet)}
 .vbox p b{display:block;font-weight:500;color:var(--ink);font-size:15px}
@@ -101,7 +101,8 @@ footer a{margin:0 10px}
 .rv{opacity:0;transform:translateY(22px);transition:opacity .9s ease,transform .9s ease}
 .rv.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.ticker div,.dot{animation:none}}
-@media(max-width:560px){.eyebrow{letter-spacing:.14em;font-size:10px}.vgrid{gap:12px}.play{width:56px;height:56px;margin:-28px 0 0 -28px}.panel{padding:22px}}
+@media(max-width:760px){.vgrid{grid-template-columns:repeat(2,minmax(0,1fr))}.vbox:nth-child(3){grid-column:1/-1;width:calc(50% - 8px);justify-self:center}}
+@media(max-width:560px){.eyebrow{letter-spacing:.14em;font-size:10px}.vgrid{gap:12px}.vbox:nth-child(3){width:calc(50% - 6px)}.play{width:56px;height:56px;margin:-28px 0 0 -28px}.panel{padding:22px}}
 </style>
 </head>
 <body>
@@ -130,6 +131,14 @@ footer a{margin:0 10px}
           <span class="tag">Mit Ton ansehen</span>
         </div>
         <p><b>So mache ich das</b>Geschnitten von meiner KI<br><span class="hint">Statt „KI“ zu kommentieren: einfach unten eintragen</span></p>
+      </div>
+      <div class="vbox rv">
+        <div class="vid" data-src="assets/video/mala-marken.mp4" role="button" tabindex="0" aria-label="Video abspielen: Nie wieder selbst Marken anschreiben">
+          <img src="assets/video/mala-marken.jpg" alt="Pudel Mala mit Kappe und Brille, Titel: Nie wieder selbst Marken anschreiben">
+          <span class="play"><svg width="22" height="22" viewBox="0 0 24 24" fill="#0d0b10" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></span>
+          <span class="tag">Mit Ton ansehen</span>
+        </div>
+        <p><b>Nie wieder selbst pitchen</b>Claude schreibt Marken für dich an</p>
       </div>
       <div class="vbox rv">
         <div class="vid" data-src="assets/video/mala-lektion1.mp4" role="button" tabindex="0" aria-label="Video abspielen: Lektion 1 mit Mala">
