@@ -56,10 +56,13 @@ em{font-style:italic;background:var(--grad);-webkit-background-clip:text;backgro
 @keyframes run{to{transform:translateX(-50%)}}
 
 .videos{padding:clamp(56px,9vw,96px) 0}
-.vgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,3vw,28px);max-width:1000px;margin:0 auto}
-.vbox p{margin-top:14px;font-size:14px;color:var(--muted);text-align:center}
-.vbox .hint{display:inline-block;margin-top:8px;font-size:12px;color:var(--violet)}
-.vbox p b{display:block;font-weight:500;color:var(--ink);font-size:15px}
+.vrows{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(48px,8vw,88px)}
+.vrow{display:grid;grid-template-columns:minmax(0,340px) minmax(0,1fr);gap:clamp(18px,5vw,64px);align-items:center}
+.vrow.small{grid-template-columns:minmax(0,280px) minmax(0,1fr)}
+.vtext .eyebrow{margin-bottom:12px}
+.vtext h3{font-family:var(--serif);font-weight:300;font-size:clamp(30px,4.4vw,46px);line-height:1.05;margin-bottom:14px}
+.vtext p{color:var(--muted);font-size:clamp(15px,1.8vw,17px)}
+.vtext .hint{display:inline-block;margin-top:14px;font-size:13px;color:var(--violet)}
 .vid{position:relative;aspect-ratio:9/16;border-radius:22px;overflow:hidden;background:var(--soft);cursor:pointer}
 .vid img,.vid video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .vid video{opacity:0;transition:opacity .3s}
@@ -101,8 +104,7 @@ footer a{margin:0 10px}
 .rv{opacity:0;transform:translateY(22px);transition:opacity .9s ease,transform .9s ease}
 .rv.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.ticker div,.dot{animation:none}}
-@media(max-width:760px){.vgrid{grid-template-columns:repeat(2,minmax(0,1fr))}.vbox:nth-child(3){grid-column:1/-1;width:calc(50% - 8px);justify-self:center}}
-@media(max-width:560px){.eyebrow{letter-spacing:.14em;font-size:10px}.vgrid{gap:12px}.vbox:nth-child(3){width:calc(50% - 6px)}.play{width:56px;height:56px;margin:-28px 0 0 -28px}.panel{padding:22px}}
+@media(max-width:560px){.eyebrow{letter-spacing:.14em;font-size:10px}.vrow,.vrow.small{grid-template-columns:42% minmax(0,1fr);gap:16px}.vtext h3{font-size:26px;margin-bottom:8px}.vtext p{font-size:14px;line-height:1.55}.vtext .eyebrow{margin-bottom:8px}.vid{border-radius:16px}.tag{display:none}.play{width:56px;height:56px;margin:-28px 0 0 -28px}.panel{padding:22px}}
 </style>
 </head>
 <body>
@@ -123,30 +125,43 @@ footer a{margin:0 10px}
 
 <section class="videos">
   <div class="wrap">
-    <div class="vgrid">
-      <div class="vbox rv">
+    <div class="vrows">
+    <div class="vrow rv">
         <div class="vid" data-src="assets/video/ki-sophie.mp4" role="button" tabindex="0" aria-label="Video abspielen: Sophie erklärt, wie ihre KI schneidet und postet">
           <img src="assets/video/ki-sophie.jpg" alt="Sophie spricht in die Kamera: An alle mit Canvas UGC">
           <span class="play"><svg width="22" height="22" viewBox="0 0 24 24" fill="#0d0b10" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></span>
           <span class="tag">Mit Ton ansehen</span>
         </div>
-        <p><b>So mache ich das</b>Geschnitten von meiner KI<br><span class="hint">Statt „KI“ zu kommentieren: einfach unten eintragen</span></p>
+        <div class="vtext">
+          <span class="eyebrow">Hör mal rein</span>
+          <h3>So arbeite ich <em>heute</em></h3>
+          <p>Ich drehe, die KI macht den Rest. Sie wirft Pausen und Versprecher raus, packt Untertitel und passende Szenen drauf und postet das Video auf meinen Accounts. Ich schau nur noch drüber.</p>
+          <span class="hint">Statt „KI“ zu kommentieren: einfach unten eintragen ↓</span>
+        </div>
       </div>
-      <div class="vbox rv">
+    <div class="vrow small rv">
         <div class="vid" data-src="assets/video/mala-marken.mp4" role="button" tabindex="0" aria-label="Video abspielen: Nie wieder selbst Marken anschreiben">
           <img src="assets/video/mala-marken.jpg" alt="Pudel Mala mit Kappe und Brille, Titel: Nie wieder selbst Marken anschreiben">
           <span class="play"><svg width="22" height="22" viewBox="0 0 24 24" fill="#0d0b10" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></span>
           <span class="tag">Mit Ton ansehen</span>
         </div>
-        <p><b>Nie wieder selbst pitchen</b>Claude schreibt Marken für dich an</p>
+        <div class="vtext">
+          <span class="eyebrow">Mala erklärt</span>
+          <h3>Nie wieder selbst <em>pitchen</em></h3>
+          <p>Marken anschreiben hasst fast jede Creatorin. Claude sucht passende Marken raus, fragt über Instagram nach der richtigen Adresse und schickt deine Pitch-Mail. Du kümmerst dich nur noch um die Antworten.</p>
+        </div>
       </div>
-      <div class="vbox rv">
+    <div class="vrow small rv">
         <div class="vid" data-src="assets/video/mala-lektion1.mp4" role="button" tabindex="0" aria-label="Video abspielen: Lektion 1 mit Mala">
           <img src="assets/video/mala-lektion1.jpg" alt="Pudel Mala mit Kappe und Brille erklärt Lektion 1">
           <span class="play"><svg width="22" height="22" viewBox="0 0 24 24" fill="#0d0b10" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></span>
           <span class="tag">Mit Ton ansehen</span>
         </div>
-        <p><b>Lektion 1 mit Mala</b>Ein Blick in den Kurs</p>
+        <div class="vtext">
+          <span class="eyebrow">Ein Blick in den Kurs</span>
+          <h3>Lektion 1 mit <em>Mala</em></h3>
+          <p>Mala zeigt dir, was Claude alles für dich erledigt: vom ersten Schnitt bis zum fertigen Post auf mehreren Accounts. Und ohne dein OK geht nichts online.</p>
+        </div>
       </div>
     </div>
   </div>
